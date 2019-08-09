@@ -1,0 +1,64 @@
+.tab {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+}
+
+.tabTitle {
+    color: #484848;
+    font-weight: bold;
+    text-align: center;
+    height: 40px;
+    line-height: 40px;
+}
+
+.tabContent {
+    width: 800px;
+    border: 1px solid #ff5c5c;
+}
+
+.contentTop {
+    border-bottom: 1px solid #ff5c5c;
+}
+
+.tabBox{
+    display: inline-block;
+    padding: 0 20px;
+    border-right: 1px solid #ff5c5c;
+}
+
+.tabInput {
+    display: inline-block;
+    font-size: 14px;
+    width: 45px;
+    height: 30px;
+    border: none;
+}
+
+.close {
+    display: inline-block;
+    top:0;
+    font-size: 16px;
+    cursor: pointer;
+    vertical-align: top;
+}
+
+.addButtonContent{
+    float: right;
+    display: inline-block;
+    line-height: 50px;
+}
+
+.addButton{
+    font-size: 20px;
+    height: 30px;
+}
+
+.textArea{
+    font-size: 18px;
+    width: 760px;
+    height: 350px;
+    padding: 10px;
+    border: none;
+}
