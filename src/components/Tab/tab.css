@@ -14,18 +14,20 @@
 }
 
 .tabContent {
-    width: 800px;
+    width: 820px;
     border: 1px solid #ff5c5c;
 }
 
 .contentTop {
-    border-bottom: 1px solid #ff5c5c;
+    position: relative;
+    height: 50px;
 }
 
 .tabBox{
     display: inline-block;
     padding: 0 20px;
     border-right: 1px solid #ff5c5c;
+    border-bottom: 1px solid #ff5c5c;
 }
 
 .tabInput {
@@ -45,12 +47,14 @@
 }
 
 .addButtonContent{
-    float: right;
-    display: inline-block;
-    line-height: 50px;
+    border-bottom: 1px solid #ff5c5c;
+    overflow: hidden;
+    height: 50px;
+    min-width: 40px;
 }
 
 .addButton{
+    float: right;
     font-size: 20px;
     height: 30px;
 }

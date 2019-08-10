@@ -52,6 +52,16 @@ class ReactTest extends React.Component {
 
 
 class Person extends React.Component {
+
+    static defaultProps = {
+        sex: '默认男'
+    };
+
+    static propTypes = {
+        sex: PropTypes.string
+
+    };
+
     render() {
         return (
             <ul>
@@ -63,15 +73,7 @@ class Person extends React.Component {
     }
 }
 
-Person.propTypes = {
-    sex: PropTypes.string
-};
-
-Person.defaultProps = {
-    sex : '默认男'
-};
-
-let person = {username: 'kobe', age: 39, sex: '男'};
+let person = {username: 'kobe', age: 39};
 
 ReactDOM.render(
     <Person username={person.username} age={person.age} sex={person.sex}/>,

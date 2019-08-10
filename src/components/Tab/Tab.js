@@ -1,6 +1,7 @@
 import * as React from "react";
 import ReactDOM from "react-dom";
 import './tab.css'
+import {doWhileStatement} from "@babel/types";
 
 class TabContext {
     constructor(title, text) {
@@ -95,9 +96,11 @@ class Tab extends React.Component {
                 <h3 className={'tabTitle'}>JS 面向对象 动态添加标签页</h3>
                 <div className={'tabContent'}>
                     <div className={'contentTop'}>
-                        {this.state.tabContext.map((item, index) => {
-                            return <TabContext item={item} index={index} key={index}/>
-                        })}
+                        <div style={{float: 'left'}}>
+                            {this.state.tabContext.map((item, index) => {
+                                return <TabContext item={item} index={index} key={index}/>
+                            })}
+                        </div>
                         <div className={'addButtonContent'}>
                             <input type="button" value={'+'} className={'addButton'} onClick={this.addTab} readOnly/>
                         </div>
