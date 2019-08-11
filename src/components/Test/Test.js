@@ -76,26 +76,31 @@ ReactDOM.render(
 );
 
 //深拷贝递归运用
-// function deepCopy(newObj, obj) {
-//     for (let k in obj) {
-//         if ((typeof obj[k]) !== "object" || obj[k] === null || Array.isArray(obj[k])) {
-//             newObj[k] = obj[k]
-//         } else {
-//             newObj[k] = {};
-//             deepCopy(newObj[k], obj[k])
-//         }
-//     }
-// }
-//
-// let a = {
-//     a: 12,
-//     b: 3,
-//     c: {name: 'Cobe', age: 39},
-//     arr: [1,2,3,4,9,123],
-//     state:null
-// };
-// let b = {};
-// deepCopy(b, a);
-// console.log(b);
+function deepCopy(newObj, oldObj) {
+    for (let k in oldObj) {
+        //不仅是对象里面要递归，并且数组内部也要递归，不然可能出现数组里面是对象的情况
+        if (oldObj[k] instanceof Array) {
+            newObj[k] = [];
+            deepCopy(newObj[k],oldObj[k])
+            //这两个的方向判断不能调换，因为array instanceof Object 也是 true
+        } else if(oldObj[k] instanceof Object){
+            newObj[k] = {};
+            deepCopy(newObj[k], oldObj[k])
+        } else {
+            newObj[k] = oldObj[k]
+        }
+    }
+}
+
+let a = {
+    a: 12,
+    b: 3,
+    c: {name: 'Cobe', age: 39},
+    arr: [1, 2, 3, 4, 9, 123],
+    state: null
+};
+let b = {};
+deepCopy(b, a);
+console.log(b);
 
 export default Test;
