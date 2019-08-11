@@ -58,8 +58,7 @@ class Person extends React.Component {
     };
 
     static propTypes = {
-        sex: PropTypes.string
-
+        sex: PropTypes.string.isRequired //使用isRequired来标记必要属性
     };
 
     render() {
@@ -76,7 +75,9 @@ class Person extends React.Component {
 let person = {username: 'kobe', age: 39};
 
 ReactDOM.render(
-    <Person username={person.username} age={person.age} sex={person.sex}/>,
+    //<Person username={person.username} age={person.age} sex={person.sex}/>,
+    //可以使用...扩展运算符 ， 将对象展开，便于一次型传入很多数据
+    <Person {...person}/>,
     document.getElementById('root3')
 );
 

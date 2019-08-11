@@ -75,4 +75,27 @@ ReactDOM.render(
     document.getElementById('test1')
 );
 
+//深拷贝递归运用
+// function deepCopy(newObj, obj) {
+//     for (let k in obj) {
+//         if ((typeof obj[k]) !== "object" || obj[k] === null || Array.isArray(obj[k])) {
+//             newObj[k] = obj[k]
+//         } else {
+//             newObj[k] = {};
+//             deepCopy(newObj[k], obj[k])
+//         }
+//     }
+// }
+//
+// let a = {
+//     a: 12,
+//     b: 3,
+//     c: {name: 'Cobe', age: 39},
+//     arr: [1,2,3,4,9,123],
+//     state:null
+// };
+// let b = {};
+// deepCopy(b, a);
+// console.log(b);
+
 export default Test;
