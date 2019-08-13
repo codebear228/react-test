@@ -92,6 +92,11 @@ function deepCopy(newObj, oldObj) {
     }
 }
 
+//深拷贝运用Json方法
+function deepCopy2(newObj, oldObj){
+    newObj = JSON.parse(JSON.stringify(oldObj));
+}
+
 let a = {
     a: 12,
     b: 3,

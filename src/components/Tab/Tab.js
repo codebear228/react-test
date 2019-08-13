@@ -21,9 +21,10 @@ class Tab extends React.Component {
             tabNum: 0
         };
 
-        this.addTab = this.addTab.bind(this);
+        // this.addTab = this.addTab.bind(this);
         this.deleteTab = this.deleteTab.bind(this);
         this.changeInput = this.changeInput.bind(this);
+        //两种方式解决，要么bind绑定this，要么用箭头函数（但原生react不支持）
     }
 
     componentWillMount() {
@@ -34,7 +35,7 @@ class Tab extends React.Component {
         });
     }
 
-    addTab() {
+    addTab = () => {
         let tabIndex = this.state.tabIndex;
         tabIndex++;
         let newTabNum = this.state.tabNum;
@@ -65,7 +66,7 @@ class Tab extends React.Component {
     changeInput(index, e) {
         if (e.nativeEvent.keyCode === 13) { //e.nativeEvent获取原生的事件对像
             let tabItem = this.state.tabContext;
-            tabItem[index].title = e.target.value;
+            tabItem[index].title = this.refs.msg.value;
             this.setState(
                 {
                     tabContext: tabItem
@@ -83,8 +84,8 @@ class Tab extends React.Component {
             return (
                 <div className={'tabBox'}>
                     <div style={{display: 'inline-block', lineHeight: '50px'}}>
-                        <input className={'tabInput'} defaultValue={props.item.title}
-                               onKeyPress={changeInput.bind(this, props.index)}/>
+                        <input className={'tabInput'} ref="msg" defaultValue={props.item.title}
+                               onKeyPress={changeInput.bind(this, props.index)} disabled={true}/>
                     </div>
                     <span className={'close'} onClick={deleteTab.bind(this, props.index)}>×</span>
                 </div>
